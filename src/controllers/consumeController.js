@@ -76,7 +76,7 @@ const consumeController = {
             const consume = await Consume.update(data,
                 {
                     where: {
-                        id: req.body.id
+                        id: req.body.id_consume
                     }
                 })
             res.status(200).send({message: 'Success', consume})

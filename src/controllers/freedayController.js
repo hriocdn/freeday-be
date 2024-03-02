@@ -40,7 +40,11 @@ const freedayController = {
                 }]
             })
 
-            res.status(200).send({message: 'Success', freeday})
+            const event = await Event.findOne({
+                where: {id: id_event}
+            })
+
+            res.status(200).send({message: 'Success', freeday, event})
         }catch(e){
             res.status(400).send({error: e.message});
         }
