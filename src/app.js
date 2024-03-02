@@ -3,6 +3,7 @@ const cors = require('cors');
 const routerConsume = require('./routes/consume.js')
 const routerEvent = require('./routes/event.js')
 const routerFreeday = require('./routes/freeday.js')
+const routerUser = require('./routes/auth.js');
 
 const corsOptions ={
     // origin:'*',
@@ -18,6 +19,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false}));
 app.use(express.static('public'));
 
-app.use('/api', [routerConsume, routerEvent, routerFreeday]);
+app.use('/api', [routerConsume, routerEvent, routerFreeday, routerUser]);
 
 module.exports = app;

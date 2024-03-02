@@ -149,6 +149,10 @@ const freedayController = {
                 throw new Error('Event Not Found !!!');
             }
 
+            if (item.status){
+                throw new Error('Event Finished !!!');
+            }
+
             let data = {
                 id_event: event,
                 id_consume: ids,
