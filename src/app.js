@@ -4,6 +4,7 @@ const routerConsume = require('./routes/consume.js')
 const routerEvent = require('./routes/event.js')
 const routerFreeday = require('./routes/freeday.js')
 const routerUser = require('./routes/auth.js');
+const routerDashboard = require('./routes/dashboard.js');
 
 const corsOptions ={
     // origin:'*',
@@ -19,6 +20,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false}));
 app.use(express.static('public'));
 
-app.use('/api', [routerConsume, routerEvent, routerFreeday, routerUser]);
+app.use('/api', [routerConsume, routerEvent, routerFreeday, routerUser, routerDashboard]);
 
 module.exports = app;
