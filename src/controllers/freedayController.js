@@ -44,7 +44,20 @@ const freedayController = {
                 where: {id: id_event}
             })
 
-            res.status(200).send({message: 'Success', freeday, event})
+            let sumRate = [0, 0, 0, 0, 0];
+            let percentRate = 0;
+            freeday.forEach(el => {
+                sumRate[0] += parseInt(el.rate1);
+                sumRate[1] += parseInt(el.rate2);
+                sumRate[2] += parseInt(el.rate3);
+                sumRate[3] += parseInt(el.rate4);
+                sumRate[4] += parseInt(el.rate5);
+                let percentSum = ((parseInt(el.rate5) + parseInt(el.rate4)) / (parseInt(el.rate1) + parseInt(el.rate2) + parseInt(el.rate3) + parseInt(el.rate4) + parseInt(el.rate5))).toFixed(2) * 100;
+                percentRate += percentSum;
+            })
+
+
+            res.status(200).send({message: 'Success', freeday, event, sumRate, percentRate})
         }catch(e){
             res.status(400).send({error: e.message});
         }
