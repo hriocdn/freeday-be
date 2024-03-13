@@ -45,21 +45,32 @@ const dashboardController = {
             include: [{
                 model: Freeday,
                 required: true,
-                limit: 1
             }]
         });
 
         let events = [];
         event.forEach(element => {
-            let rate1 = parseInt(element.Freedays[0].rate1);
-            let rate2 = parseInt(element.Freedays[0].rate2);
-            let rate3 = parseInt(element.Freedays[0].rate3);
-            let rate4 = parseInt(element.Freedays[0].rate4);
-            let rate5 = parseInt(element.Freedays[0].rate5);
+            let sumPerEvent = 0;
 
-            let sum = (rate1)+(rate2)+(rate3)+(rate4)+(rate5);
+            element.Freedays.forEach(el => {
 
-            events.push({name: element.name, date: element.date, presence: sum})
+                let rate1 = parseInt(el.rate1);
+                let rate2 = parseInt(el.rate2);
+                let rate3 = parseInt(el.rate3);
+                let rate4 = parseInt(el.rate4);
+                let rate5 = parseInt(el.rate5);
+                let sum = (rate1)+(rate2)+(rate3)+(rate4)+(rate5);
+
+                sumPerEvent += sum;
+            })
+            // let rate1 = parseInt(element.Freedays[0].rate1);
+            // let rate2 = parseInt(element.Freedays[0].rate2);
+            // let rate3 = parseInt(element.Freedays[0].rate3);
+            // let rate4 = parseInt(element.Freedays[0].rate4);
+            // let rate5 = parseInt(element.Freedays[0].rate5);
+
+            // let sum = (rate1)+(rate2)+(rate3)+(rate4)+(rate5);
+            events.push({name: element.name, date: element.date, presence: sumPerEvent})
         })
 
         let allsort = all.sort(applicationHelper.compare_sum);
