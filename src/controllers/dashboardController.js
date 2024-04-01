@@ -32,7 +32,7 @@ const dashboardController = {
                 let rate4 = parseInt(el.rate4);
                 let rate5 = parseInt(el.rate5);
 
-                high += rate4 + rate5;
+                high += rate5;
                 low += rate1 + rate2;
                 sum += (rate1)+(rate2 * 2)+(rate3 * 3)+(rate4 * 4)+(rate5 * 5);
             })

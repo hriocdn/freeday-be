@@ -52,7 +52,7 @@ const freedayController = {
                 sumRate[2] += parseInt(el.rate3);
                 sumRate[3] += parseInt(el.rate4);
                 sumRate[4] += parseInt(el.rate5);
-                let percentSum = ((parseInt(el.rate5) + parseInt(el.rate4)) / (parseInt(el.rate1) + parseInt(el.rate2) + parseInt(el.rate3) + parseInt(el.rate4) + parseInt(el.rate5))).toFixed(2) * 100;
+                let percentSum = (parseInt(el.rate5) / (parseInt(el.rate1) + parseInt(el.rate2) + parseInt(el.rate3) + parseInt(el.rate4) + parseInt(el.rate5))).toFixed(2) * 100;
                 percentRate += percentSum;
             })
 
